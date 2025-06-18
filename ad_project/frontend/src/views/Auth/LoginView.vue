@@ -37,31 +37,33 @@ v-model="password"
 </v-row>
 </v-container>
 </template>
+
 <script>
 export default {
-data () {
-return {
-email: "",
-password: "",
-valid: false,
-emailRules: [
-v => !!v || 'E-mail is required',
-v => /.+@.+\..+/.test(v) || 'E-mail must be valid'
-],
-passwordRules: [
-v => !!v || 'Password is required',
-v => (v && v.length >= 6) || 'Password must be more or equel than 6 characters'
-]
-}
-},
-methods: {
-onSubmit(){
-if (this.$refs.form.validate()){
-const user = {
-email: this.email,
-password: this.password
-}
-console.log(user)
+	data () {
+		return {
+			email: "",
+			password: "",
+			valid: false,
+			emailRules: [
+				v => !!v || 'E-mail is required',
+				v => /.+@.+\..+/.test(v) || 'E-mail must be valid'
+			],
+			passwordRules: [
+				v => !!v || 'Password is required',
+				v => (v && v.length >= 6) || 'Password must be more or equel than 6 characters'
+			]
+		}
+	},
+	methods: {
+		onSubmit(){
+			if (this.$refs.form.validate()){
+				const user = {
+					email: this.email,
+					password: this.password
+				}
+				console.log(user)
+			}
 		}
 	}
 }
