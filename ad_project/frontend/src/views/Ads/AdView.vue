@@ -17,7 +17,7 @@ cover
 <v-card-actions>
 <v-spacer></v-spacer>
 <modal-dialog :ad="ad" v-if="isOwner"></modal-dialog>
-<v-btn class="success" color="green">Buy</v-btn>
+<buy-ad-modal :ad="ad"></buy-ad-modal>
 </v-card-actions>
 </v-card>
 </v-col>
