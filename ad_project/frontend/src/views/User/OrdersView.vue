@@ -33,31 +33,9 @@ color="primary"
 </template>
 <script>
 export default {
-data () {
-return {
-orders: [
-{
-		id:"123",
-		name:"Kostya",
-		phone:"+7(978)000-00-05",
-		adId:"1",
-		done:true
-	},
-	{
-		id:"124",
-		name:"Maria",
-		phone:"+7(978)111-22-33",
-		adId:"2",
-		done:false
-	},
-	{
-		id:"125",
-		name:"Alex",
-		phone:"+7(978)444-55-66",
-		adId:"3",
-		done:false
-	}
-	]
+computed: {
+orders(){
+return this.$store.getters.orders
 }
 },
 methods: {
