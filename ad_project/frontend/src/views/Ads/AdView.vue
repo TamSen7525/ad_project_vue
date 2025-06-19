@@ -16,7 +16,7 @@ cover
 </v-card-text>
 <v-card-actions>
 <v-spacer></v-spacer>
-<v-btn class="warning" color="orange">Edit</v-btn>
+<modal-dialog :ad="ad" v-if="isOwner"></modal-dialog>
 <v-btn class="success" color="green">Buy</v-btn>
 </v-card-actions>
 </v-card>
@@ -26,16 +26,24 @@ cover
 </template>
 
 <script>
+import EditAdModal from './EditAdModal'
+
 export default {
 data() {
 return {};
 },
 props: ['id'],
-computed: {
-ad() {
-const id = this.id
-return this.$store.getters.adById(id)
-}
+  computed: {
+    ad() {
+      const id = this.id
+      return this.$store.getters.adById(id)
+    },
+    isOwner() {
+      return this.ad.ownerId === this.$store.getters.user?.id
+    }
+  },
+components: {
+'modal-dialog': EditAdModal
 }
 };
 </script> 

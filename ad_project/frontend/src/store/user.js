@@ -8,7 +8,7 @@ this.password = password
 
 export default {
 state: {
-user: null
+user: new User("1", "test@example.com", "password")
 },
 mutations: {
 setUser(state,payload) {
@@ -29,7 +29,7 @@ setTimeout(() => resolve('Done')
 
 if (isRequestOk) {
 await promise.then(()=> {
-commit('setUser', new User(1, email, password))
+commit('setUser', new User("1", email, password))
 commit('setLoading', false)
 })
 } else {
